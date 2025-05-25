@@ -4,7 +4,7 @@ A modern, responsive TodoList application built with **React JS**. This app allo
 
 ## 🎥 Demo
 
-You can watch the full screen recording demo [https://github.com/iampranaypani/to-do-list/blob/main/Screen%20Recording%202025-05-25%20112301.mp4]
+👉 **Watch the full screen recording demo**: [Click here to view](https://github.com/iampranaypani/to-do-list/blob/main/Screen%20Recording%202025-05-25%20112301.mp4)  
 
 ## 🚀 Features
 
