@@ -1,0 +1,239 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 60px 20px 40px;
+}
+
+/* Theme variables */
+body.light {
+  --background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+  --container-bg: #fff;
+  --text: #333;
+  --input-border: #ccc;
+  --btn-bg: #00c896;
+  --btn-hover-bg: #00a97f;
+  --task-bg: #f9f9f9;
+  --task-border: #e0e0e0;
+  --completed-text: #999;
+  --btn-color: white;
+  --btn-hover-color: white;
+}
+
+body.dark {
+  --background: #121212;
+  --container-bg: #1e1e1e;
+  --text: #eee;
+  --input-border: #444;
+  --btn-bg: #00c896;
+  --btn-hover-bg: #00a97f;
+  --task-bg: #2c2c2c;
+  --task-border: #444;
+  --completed-text: #666;
+  --btn-color: white;
+  --btn-hover-color: white;
+}
+
+.container {
+  width: 100%;
+  max-width: 550px;
+  background: var(--container-bg);
+  border-radius: 20px;
+  padding: 30px 40px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.theme-toggle {
+  background: transparent;
+  border: 2px solid var(--btn-bg);
+  color: var(--btn-bg);
+  border-radius: 25px;
+  padding: 6px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.theme-toggle:hover {
+  background: var(--btn-bg);
+  color: var(--btn-hover-color);
+}
+
+.input-section {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+input {
+  flex: 1;
+  padding: 14px 18px;
+  font-size: 16px;
+  border: 2px solid var(--input-border);
+  border-radius: 12px;
+  background: var(--container-bg);
+  color: var(--text);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input::placeholder {
+  color: var(--input-border);
+}
+
+input:focus {
+  border-color: var(--btn-bg);
+  outline: none;
+}
+
+button {
+  background-color: var(--btn-bg);
+  color: var(--btn-color);
+  padding: 14px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+button:hover {
+  background-color: var(--btn-hover-bg);
+}
+
+.tasks-section {
+  margin-bottom: 30px;
+}
+
+.tasks-section h2 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  border-bottom: 2px solid var(--btn-bg);
+  padding-bottom: 6px;
+  color: var(--text);
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.task-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+  background: var(--btn-bg);
+  border-radius: 3px;
+}
+
+.task-item {
+  background: var(--task-bg);
+  border: 1px solid var(--task-border);
+  border-radius: 12px;
+  padding: 12px 18px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.task-item.completed span {
+  text-decoration: line-through;
+  color: var(--completed-text);
+  font-style: italic;
+  opacity: 0.7;
+  transition: color 0.3s ease;
+}
+
+.task-item span {
+  word-break: break-word;
+  flex: 1;
+  font-size: 16px;
+}
+
+.task-item button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  color: var(--text);
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.task-item button:hover {
+  color: var(--btn-bg);
+}
+
+/* Completed tasks have just delete button */
+.completed-tasks .task-item button:first-child {
+  margin-left: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px 25px;
+  }
+
+  input {
+    font-size: 14px;
+    padding: 12px 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .tasks-section h2 {
+    font-size: 18px;
+  }
+}
